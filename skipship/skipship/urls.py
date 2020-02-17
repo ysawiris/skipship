@@ -1,4 +1,4 @@
-"""skipship URL Configuration
+"""SocialMedia URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -14,8 +14,28 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
+    #RestFul API
+    path('api/', include('api.urls')),
+    # Admin Site
     path('admin/', admin.site.urls),
+        
+    #Link the urls in media 
+    path('', include('cart.urls')),
+
+    #Enabling User Authentication in Django 
+    path('accounts/', include('django.contrib.auth.urls')),
+
+    #to link urls in Account App
+    path('accounts/', include('accounts.urls')),
+
+
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
