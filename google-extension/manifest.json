@@ -1,0 +1,18 @@
+{
+    "name": "ShipSkip Extention",
+    "version": "1.0",
+    "description": "Chrome Extention for SkipShip which allows you to team up to avoid minimum charge for free shipping",
+    "permissions": ["activeTab", "storage", "tabs", "http://*/", "https://*/"],
+    "author": "Youssef Sawiris",
+    "browser_action": { "default_popup": "popup.html" },
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "manifest_version": 2
+}
+
+// "icons": {
+//     "16": "images/logo16.png",
+//     "48": "images/logo48.png",
+//     "128": "images/logo128.png"
+// }
