@@ -8,7 +8,7 @@ class CartItem(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.CharField(max_length=50)
     quantity = models.IntegerField(default=1)
-    cart = models.ForeignKey(Cart,  on_delete=models.CASCADE)
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
 # model_variable = models.ForeignKey('the_appname.the_model_class_name)
    
 
