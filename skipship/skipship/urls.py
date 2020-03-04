@@ -27,7 +27,7 @@ urlpatterns = [
     #Link the urls in media 
     path('', include('cart.urls')),
 
-    path('cartitem/', include('cart.urls')),
+    path('', include('cartitem.urls')),
 
     #Enabling User Authentication in Django 
     path('accounts/', include('django.contrib.auth.urls')),
