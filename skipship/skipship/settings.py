@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-ROOT_URLCONF = 'SkipShip.urls'
+ROOT_URLCONF = 'skipship.urls'
 
 TEMPLATES = [
     {
@@ -75,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'SkipShip.wsgi.application'
+WSGI_APPLICATION = 'skipship.wsgi.application'
 
 
 # Database
