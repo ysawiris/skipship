@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cart.models import Cart 
 from PIL import Image
 # Create your models here.
 
