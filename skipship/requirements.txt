@@ -4,3 +4,4 @@ Pillow
 gunicorn==20.0.4
 whitenoise==5.0.1
 python-dotenv==0.10.3
+djangorestframework
