@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 from cart.models import Cart
 from cart.forms import CartForm
 
@@ -31,7 +31,7 @@ class DeleteCart(DeleteView):
     model = Cart
     template_name = 'cart/delete_cart.html'
 
-class CreateNewCart(CreateView):
+class CreateNewCart(LoginRequiredMixin, CreateView):
     def get(self, request):
         content = {'form': CartForm()}
         return render(request, 'cart/create_new_cart.html', content)

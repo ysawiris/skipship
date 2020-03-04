@@ -1,13 +1,14 @@
 from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy, reverse
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import Http404
 
 from .models import CartItem
 from .forms import CartItemForm
 
 
-class DetailCartItem(DetailView):
+class DetailCartItem(LoginRequiredMixin, DetailView):
     model = CartItem
 
     def get(self, request, pk):
@@ -19,13 +20,13 @@ class DetailCartItem(DetailView):
         })
 
 
-class ListCartItem(ListView):
+class ListCartItem(LoginRequiredMixin, ListView):
     model = CartItem
     def get(self, request):
         items = self.get_queryset().all()
         return render(request, 'cartitem/cartitems.html', {'items': items})
 
-class CreateNewCartItem(CreateView):
+class CreateNewCartItem(LoginRequiredMixin, CreateView):
     model = CartItem
 
     def get(self, request):
