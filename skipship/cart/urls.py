@@ -4,6 +4,7 @@ from . import views
 
 # Cart Urls
 urlpatterns = [
+    path('', views.Homepage, name="homepage"),
     path('cart/', views.ListCart, name='list-carts'),
     path('cart/<int:pk>/', views.DetailCart.as_view(), name='detail-cart'),
     path('cart/create/', views.CreateCart.as_view(), name='create-cart'),

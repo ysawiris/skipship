@@ -4,6 +4,10 @@ from django.views.generic import DetailView, ListView, CreateView, UpdateView, D
 from .models import Cart
 
 ##-------------- Cart Views --------------------------------------
+class Homepage(ListView):
+    model = Cart
+    template_name='cart/homepage.html'
+
 class DetailCart(DetailView):
     model = Cart
     template_name='cart/detail_cart.html'
