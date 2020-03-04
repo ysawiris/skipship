@@ -25,8 +25,7 @@ SECRET_KEY = '8^$_8=xhce!nb$2gzqee4+qcyot7=8(h-#rxhz#v@2*u8-1%5q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'uniqueprojectname.herokuapp.com']
-
+ALLOWED_HOSTS = ["localhost", 'skipship-io.herokuapp.com', "127.0.0.1", "0.0.0.0"]
 
 
 # Application definition
@@ -53,6 +52,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'SkipShip.urls'
@@ -123,7 +123,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 
 # Static files (CSS, JavaScript, Images)
@@ -136,6 +136,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'photos')
 MEDIA_URL = '/photos/'
 
