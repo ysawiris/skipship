@@ -1,31 +1,33 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
-    <a class='navbar-brand ml-2' href='#'>
-        <img src="../iconSkipSmall.png" class="img-fluid w-25" alt="Logo">
-        ShipAndSkip
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-            <a class="nav-link mr-4" href="/Home.html"><h3>Home</h3> <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active mr-4">
-            <a class="nav-link" href="/profile.html"><h3>Profile</h3></a>
-            </li>
-            <li class="nav-item active mr-4">
-                <a class="nav-link" href="/cart.html"><h3>Cart</h3></a>
-            </li>
-            <li class="nav-item active mr-4">
-                <a class="nav-link" href="/order.html"><h3>Order</h3></a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username">
-            <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="Login">Login</button>
-        </form>
+<nav class="navbar navbar-expand-md navbar-dark bg-primary shadow p-3 mb-3">
+    {% if user.is_authenticated %}
+    <div class="nav container-fluid" style="width: 500px; margin-left: 25px; margin-right: 0px;">
+        <button class="navbar-toggler" type="submit" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toogler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cart/all">Carts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cartitem/all">Items</a>
+                </li>
+            </ul>
+        </div>
     </div>
+    <div class="text-white" style="margin-right: 15px;">Hello, <strong>{{ user }}</strong>!</div>
+    {% endif %}
+
+    <a class="navbar-brand" href="/">SkipShip</a>
+
+    <div class="btn-group-fluid btn-group-md rounded ml-auto" role="group" aria-label="Basic example">
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}"><button type="button" class="bar btn btn-danger">LogOut</button></a> {% else %}
+        <a href="{% url 'login' %}" class="btn btn-light ml-2">Log In</a>
+        <a href="{% url 'media-signup-page' %}" class="btn btn-primary ml-2">Sign Up</a> {% endif %}
+    </div>
+
 </nav>

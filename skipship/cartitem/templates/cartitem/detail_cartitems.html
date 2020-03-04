@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col m-4">
+            <h3>{{ cartitem.user }}</h3>
+            <hr>
+            <h3>{{ cartitem.product }}</h3>
+            <hr>
+            <h3>{{ cartitem.quantity }}</h3>
+            <hr>
+            <h3>{{ cartitem.cart }}</h3>
+            <hr>
+        </div>
+    </div>
+    <form action="{% url 'cartitem:delete-cartitem' cartitem.id %}" method="POST">
+        {% csrf_token %}
+        <input class="btn btn-primary" type="submit" value="Delete">
+    </form>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-primary" type="submit" value="Update">
+    </form>
+{% endblock %}

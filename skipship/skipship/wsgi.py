@@ -1,5 +1,5 @@
 """
-WSGI config for SkipShip project.
+WSGI config for SocialMedia project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

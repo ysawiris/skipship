@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Your Cart{% if items %}<small class="text-muted">({{ items|length }} Item{{ items|length|pluralize:"s" }})</small>{% endif %}</h3>
+<hr>
+
+
+{% if items %}
+    <div class="card-columns">
+        {% for item in items %}
+            <div class="card mb-3">
+                <a href="{% url 'cartitem:detail-cartitem' item.id %}">
+                    <h3>User: {{ item.user }}</h3>
+                    <h3>Item: {{ item.product }}</h3>
+                    <h3>Quantity: {{ item.quantity }}</h3>
+                    <hr>
+                    <h3>Cart: {{ item.cart }}</h3>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+<div class="alert alert-primary" role="alert">
+    <h1>No items to display.</h1>
+</div>
+{% endif %}
+
+
+{% endblock %}
