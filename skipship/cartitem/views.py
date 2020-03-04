@@ -13,8 +13,9 @@ class DetailCartItem(DetailView):
 
 class ListCartItem(ListView):
     model = CartItem
-    context_object_name = 'cartitems'
-    template_name='cartitem/list_cartitems.html'
+    def get(self, request):
+        items = self.get_queryset().all()
+        return render(request, 'cartitems.html', {'items': items})
 
 class CreateNewCartItem(CreateView):
     def get(self, request):
